@@ -2,10 +2,6 @@ import sqlite3 as lite
 import pandas as pd
 import sys
 
-month = raw_input("Please state the month of interest ")
-
-print month
-
 con = lite.connect('getting_started.db')
 
 with con: 
@@ -14,6 +10,8 @@ with con:
 	cur.execute("DROP TABLE IF EXISTS weather;")
 	cur.execute("DROP TABLE IF EXISTS cities2;")
 	cur.execute("DROP TABLE IF EXISTS weather2;")
+	
+with con: 
 	cur.execute("CREATE TABLE cities(name text, state text);")
 	cur.execute("CREATE TABLE weather(city text, year integer, warm_month text, cold_month text, average_high integer);")
 
